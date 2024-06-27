@@ -1,0 +1,88 @@
+DOORS was originally a fun toy OS I built in QBASIC or ASIC as a kid, which ran
+on top of MS-DOS.  It included both a command-line, and a primitive TUI.
+
+DOORS2 is the spiritual continuation of that project, but will instead be
+written in Pascal, and use the CGA graphics mode for it's graphics.
+
+This document will contain the future design ideas for DOORS2.
+
+The system keymap for special functions will be stored in the Registry.
+There will be a simple built-in system which will ask the user for each
+action key to record that into the special keymap.
+
+Just like DOORS had a simple engine called DOORCODE, DOORS2 will instead run
+a full virtual machine for it's own Bytecode, but it will work much
+differently than existing systems.  The EXC file format for Doors binaries will
+be something like this:
+
+TDoorSegment = record
+  data: Array[0..63] of Byte;
+  flag: Boolean;
+end;
+
+The remaining entries are still to be seen, I am thinking of using an ENUM for
+various flags and such on each segment.
+
+The first segment of each EXC binary file will comprise of a simple header:
+
+TEXCHeader = record
+  sig: Array[0..3] of char;
+  cseg: Byte;
+  dseg: Byte;
+  gui: Boolean; { Maybe use flags and an Enum }
+end;
+
+The cseg or CodeSegment is a pointer to which segment in the binary file is the
+actual code segment, which should be started when the program is started. If
+cseg is 0, then the binary isn't executable by normal means.
+
+When a program is loaded into memory, there will be what is called a Task
+system, which will use the following record:
+
+TTask = record
+  {TBD}
+end;
+
+When running in GUI mode, a continuous loop will run and iterate through all
+running tasks currently known to the system.  When all tasks are complete, the
+system is considered to be a shutting down state, and DOORS2 will terminate.
+
+In the GUI, I was thinking of using hotspots on the screen which the mouse can
+move to.  One on the top right will display a full-screen clock, and one on the
+top left(maybe) will display the Task System.  Both actions will temporarily
+suspend all running tasks in the Task System.
+
+For starting a task, I was thinking of using a function signature like this
+one:  StartTask(TaskName: string; task: PTask);
+
+If a task with the same name already exists in the Task System, then it's
+initialization code is run again, but most programs will change this
+to point to something else.
+
+DOORS2 ByteCode and VM system:
+
+DOORS2 will be entirely event-based, so for example when creating a new
+interact-able on screen, it sets it's reaction, such as a click event to
+run a different DoorSegment from the loaded binary.
+
+I am still trying to think on how to load and run the actual ByteCode...
+
+Idea 1:
+  - Task record contains a Pointer to an array of DoorSegments or similar.
+  - The Task then has a pointer to the currently running segment.
+  - Makes it easy to access all it's data and such.
+
+Idea 2:
+  - There is a huge memory map of such:
+    TMemory = Array[0..63] of Byte;
+    TMemoryMap = Array[0..255] of PMemory;
+  - When a binary is loaded, it can either be loaded in entirely into
+    the next free blocks of memory in the map.  The Task then keeps track
+    of which blocks are being used for this task.
+  - Complications begin with memory fragmentation and freeing unloaded tasks.
+
+Idea 3:
+  - A mix of both of the above ideas.
+  - Load in the entire binary into the Task record.
+  - Leverage the global memory map for globally accessible code and data.
+

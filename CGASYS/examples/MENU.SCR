@@ -1,0 +1,18 @@
+'3#tfL10#0#PCGA System Menu~L0#6#
+P0 - Shell~
+P1 - Colour Testing~
+P2 - Tools~
+P3 - Hello App~
+P4 - Todo List~
+P9 - Launcher~
+0t!S.`
+1#L#3##>xColour~`
+2#L#4##>xTools~`
+3#L#5##>xHello~`
+4V#mTODO.VBD~#M#I1#todo.scr~#L#1##>#RxTodo~`
+9#L#6##>xLauncher~`
+!>welcome{#I1#welcome.scr~}
+!>i1{iI#i3#}
+!>i2{iI#i4#}
+!>i3{iI#i5#}
+!>i9{iI#i6#}.

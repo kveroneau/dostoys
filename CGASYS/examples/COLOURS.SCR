@@ -1,0 +1,13 @@
+PSimple CGA Colour Test Program.~
+PPress 0-3 on the keyboard to test.~
+9"1#PColor 1~"2#PColor 2~"3#PColor 3~`
+0'0#$9#`
+1'1#$9#`
+2'2#$9#`
+3'3#$9#`
+4fTSmall Font~t$9#`
+5FTDefault Font~t$9#`
+6cPCaps Mode disabled.~`
+7CPCaps Mode enabled.~`
+8PLoad which Block?~iI#LV#>xApp2~`
+.

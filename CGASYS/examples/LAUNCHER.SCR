@@ -1,0 +1,12 @@
+PCGA System Launcher started.~
+0tPShell Ready.~!S`
+1tPShell Ready.~!Sc`
+2tpBoot:~iIPVAR~#LV#>xLaunch~`
+!>launcher{TCGA System~tX1#Launcher~}
+!>RUN{pBoot:~iIPVAR~#LV#>xLaunch~}
+!>VER{PLauncher Version 0.9b~}
+!>TEST{#I2#test.scr~#L#2##>xTestApp~}
+!>MOUNT{pVBD to mount: ~iIPVAR~#mVAR~#MPMounted.~i!S}
+!>INIT{pScript to load: ~iIPVAR~V#I1#VAR~vPImported.~i!S}
+!>update{V#I1#launcher.scr~CvPUpdate Complete!~!!}
+PPress 0-9 to launch.~.

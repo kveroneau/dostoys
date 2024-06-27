@@ -1,0 +1,15 @@
+TCGA Tools~"1#t"3#
+0#L#1##>xBlk1~`
+P0 - Main Program~
+1VPVerbose Enabled.~`
+P1 - Enable Verbose Mode~
+2Z0#Z1#Z2#Z3#Z4#Z5#PSegments Freed.~`
+P2 - Free Segments 0 - 5~
+3Z6#Z7#Z8#Z9#Z10#Z11#PSegments Freed.~`
+P3 - Free Segments 6 - 11~
+4Z12#Z13#Z14#Z15#Z16#Z17#PSegments Freed.~`
+P4 - Free Segments 12 - 17~
+5t%DTILE.SRC~%A1#`
+P5 - Load TILE.SRC into Set 1~
+6%P100#100#1#`
+P6 - Place tile from Set 1~.

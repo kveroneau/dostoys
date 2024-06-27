@@ -30,3 +30,8 @@ keep myself mentally sharp, coding and being creative is very important for the 
 tasks I want to add to this program and implement them as best as I can.  One huge highlight in this
 project is the `CGACRT` unit which allows `Write` and `WriteLn` to otherwise output to the graphics mode
 without needing to contantly make calls to `OutTextXY`.
+
+## DOS Library
+
+A bunch of unit files which I orignally wrote in my early 20s in *QuickBASIC* then later ported over
+to Turbo Pascal in recent years.

@@ -4,6 +4,9 @@ Some MS-DOS based projects I work on for fun.
 I feel like I wanted a place to back up these projects, and they might be of interest to some people
 into MS-DOS development/tinkering/development.
 
+An interesting side note is this Raspberry Pi Zero project recently featured on *Tom's Hardware*:
+[PicoVision and Emulation](https://www.tomshardware.com/maker-stem/rp2040-boards/windows-10-goes-back-to-the-future-with-the-help-of-raspberry-pi-picovision-and-emulation-let-you-gui-like-its-1985)
+
 Here is a rundown on each project:
 
 ## DOORS2

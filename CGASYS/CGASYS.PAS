@@ -264,7 +264,8 @@ begin
   WriteLn(' ! System Prep started.');
   Seek(BootBD^.fd,1);
   Truncate(BootBD^.fd);
-  SetBootVBD(BootBD, 'fV#M#L#1##>xPrepSys~.');
+  SetBootVBD(BootBD, 'fV#M#O#L#1##>xPrepSys~.');
+  BootBD^.obfuscated:=True;
   ImportVBD(BootBD, 1, 'prepsys.scr');
   ImportVBD(BootBD, 2, 'preplib.scr');
   TextBackground(0);

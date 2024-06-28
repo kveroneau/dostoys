@@ -228,6 +228,8 @@ begin
     'S': SaveOutBlock(tsk);
     '>': BlockToSeg;
     '<': SegToBlock(GetInt(tsk));
+    'O': ActiveVBD^.obfuscated:=True;
+    'o': ActiveVBD^.obfuscated:=False;
   else
     WriteLn(' X Invalid VBDCall: ',op);
     tsk^.state:=tsError;
@@ -272,14 +274,6 @@ begin
   else
     WriteLn(' X Invalid SprCall: ',op);
     tsk^.state:=tsError;
-  end;
-end;
-
-procedure IfThen(tsk: PTask; op: char);
-begin
-  if op = '=' then
-  begin
-    if StrVar = GetString(tsk, ET) then
   end;
 end;
 

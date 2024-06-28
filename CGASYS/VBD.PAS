@@ -22,6 +22,7 @@ type
     data: PChars;
     bootable, bootwait: boolean;
     bootcode: PBoot;
+    obfuscated: boolean;
   end;
 
 procedure AssignVBD(f: PVBD; fname: string);
@@ -46,8 +47,16 @@ type
     wait: boolean;
   end;
 
+  PObKey = ^TObKey;
+  TObKey = array[0..31] of byte;
+
 const
   VBD_SIG: VSignature = 'VBD*';
+
+  OBKEY: TObKey = ($87, $23, $a8, $d9, $32, $65, $4f, $55,
+                 $90, $f2, $39, $2a, $fa, $33, $2c, $df,
+                 $1a, $49, $10, $0d, $50, $c9, $99, $4f,
+                 $a9, $1b, $36, $21, $13, $9f, $4a, $6f);
 
 procedure InitVBD(var fd: File);
 var
@@ -102,6 +111,7 @@ begin
   f^.blk:=Nil;
   f^.data:=Nil;
   f^.bootwait:=hdr^.wait;
+  f^.obfuscated:=False;
   f^.active:=True;
 end;
 
@@ -137,6 +147,29 @@ begin
   NewVBD:=fs;
 end;
 
+{ Started on June 28th, 2024 }
+{ A super simple Obfuscation routine, should be easy for almost anyone to
+  technically crack, but that's not the point, say if you are creating a
+  game of sorts using CGA System, and don't want to spoil anything in the
+  code, such as secrets and codes, this routine presents a smart enough
+  player from just running `strings` on their UNIX workstation to extract
+  all the text. }
+procedure Obfuscate(blk: PBlock);
+var
+  i: integer;
+begin
+  for i:=0 to 1023 do
+    blk^[i]:=blk^[i] xor OBKEY[i mod 31];
+end;
+
+procedure FillRandom(blk: PBlock);
+var
+  i: integer;
+begin
+  for i:=0 to 1023 do
+    blk^[i]:=Random(255);
+end;
+
 procedure WriteVBD(f: PVBD; block: word);
 begin
   if not f^.active then
@@ -144,7 +177,11 @@ begin
   if f^.blk = Nil then
     Exit;
   Seek(f^.fd, block);
+  if f^.obfuscated then
+    Obfuscate(f^.blk);
   BlockWrite(f^.fd, f^.blk^, 1);
+  if f^.obfuscated then
+    Obfuscate(f^.blk);
   {$IFDEF DEBUG}
   WriteLn('Block ',block,' written.');
   {$ENDIF}
@@ -160,6 +197,8 @@ begin
   f^.data:=@f^.blk^[0];
   Seek(f^.fd, block);
   BlockRead(f^.fd, f^.blk^, 1);
+  if f^.obfuscated then
+    Obfuscate(f^.blk);
   f^.blkid:=block;
 end;
 
@@ -211,6 +250,7 @@ begin
     Exit;
   end;
   New(buf);
+  FillRandom(buf);
   if FileSize(src) > BLOCK_SIZE then
     bs:=BLOCK_SIZE
   else
@@ -218,9 +258,13 @@ begin
   BlockRead(src, buf^, bs);
   Close(src);
   Seek(f^.fd, block);
+  if f^.obfuscated then
+    Obfuscate(buf);
   BlockWrite(f^.fd, buf^, 1);
   Dispose(buf);
 end;
 
+begin
+  Randomize;
 end.
 

@@ -112,6 +112,7 @@ begin
   end
   else if InputLine = 'SEG' then
     SegList
+  {$IFDEF DEBUG}
   else if InputLine = 'SEG0' then
     DumpSegment(SysMemory[0])
   else if InputLine = 'SEG1' then
@@ -120,7 +121,6 @@ begin
     DumpSegment(SysMemory[2])
   else if InputLine = 'SEG3' then
     DumpSegment(SysMemory[3])
-  {$IFDEF DEBUG}
   else if InputLine = 'TEST' then
     RunScript('#R#L#1##>xTest~')
   else if InputLine = 'RUN3' then

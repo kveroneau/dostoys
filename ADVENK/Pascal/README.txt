@@ -1,0 +1,3 @@
+When I was really trying to get back into Pascal, I decided to try rewriting some of my older applications in TurboPascal 4.0 to see how well I could do.  As TurboPascal 4.0 was the first one I ever owned when I was 17 or so and bought the book with the full software at a book fair in the mall.  I really wanted it to replace both QBASIC and I think maybe ASIC at the time.  I wanted a "REAL LANGUAGE" with "REAL POWER" lol.  While Pascal was really cool, and I really liked the window() procedure, which cannot be easily replicated in QBASIC, I think ASIC may have have a similar routine.  But for building text-based interfaces, this was really handy.
+
+Anyways, this rewrite in TurboPascal 4.0 was done in 2020, in May to be exact.

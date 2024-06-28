@@ -1,0 +1,321 @@
+object EditorForm: TEditorForm
+  Left = 306
+  Height = 415
+  Top = 225
+  Width = 732
+  Caption = 'Advenk Editor'
+  ClientHeight = 415
+  ClientWidth = 732
+  DesignTimePPI = 94
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '2.0.12.0'
+  object RoomList: TListBox
+    Left = 0
+    Height = 415
+    Top = 0
+    Width = 186
+    ExtendedSelect = False
+    ItemHeight = 0
+    OnClick = RoomListClick
+    ScrollWidth = 184
+    TabOrder = 0
+    TopIndex = -1
+  end
+  object Label1: TLabel
+    Left = 200
+    Height = 18
+    Top = 8
+    Width = 68
+    Caption = 'Area Title:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object AreaTitle: TEdit
+    Left = 272
+    Height = 24
+    Top = 2
+    Width = 176
+    MaxLength = 20
+    TabOrder = 1
+  end
+  object AreaDesc: TMemo
+    Left = 200
+    Height = 60
+    Top = 64
+    Width = 504
+    Lines.Strings = (
+      'Line 1'
+      'Line 2'
+      'Line 3'
+    )
+    TabOrder = 2
+  end
+  object Label2: TLabel
+    Left = 200
+    Height = 18
+    Top = 40
+    Width = 80
+    Caption = 'Description:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object ActionButtons: TGroupBox
+    Left = 200
+    Height = 128
+    Top = 136
+    Width = 504
+    Caption = 'Actions'
+    ClientHeight = 109
+    ClientWidth = 502
+    TabOrder = 3
+    object Action1: TEdit
+      Left = 8
+      Height = 24
+      Top = 8
+      Width = 232
+      MaxLength = 40
+      TabOrder = 0
+      Text = 'Action1'
+    end
+    object Action2: TEdit
+      Left = 8
+      Height = 24
+      Top = 40
+      Width = 232
+      MaxLength = 40
+      TabOrder = 1
+      Text = 'Action2'
+    end
+    object Action3: TEdit
+      Left = 8
+      Height = 24
+      Top = 72
+      Width = 230
+      MaxLength = 40
+      TabOrder = 2
+      Text = 'Action3'
+    end
+    object Target1: TComboBox
+      Left = 248
+      Height = 34
+      Top = 2
+      Width = 202
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 3
+    end
+    object Target2: TComboBox
+      Left = 248
+      Height = 34
+      Top = 40
+      Width = 200
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 4
+    end
+    object Target3: TComboBox
+      Left = 248
+      Height = 34
+      Top = 72
+      Width = 200
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 5
+    end
+    object GoAction1: TSpeedButton
+      Left = 464
+      Height = 22
+      Top = 10
+      Width = 23
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000FFF09A036047249E361A074E000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000FFF5E102573F1EFF4C3018FF371B099A3E20
+        0A0B000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000452E12FFE1B381FF9B754DFF4727
+        11D849250E320000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000003B2711FFD8A680FFD09C76FFB98B
+        60FF6A4223F9592E12745F311302000000000000000000000000F7EBCC0C5E41
+        29ED46230BFF44220BFF381D0AFF2B1708FF302110FFD09D78FFCA9570FFC08B
+        65FFB9855CFF895A36FF683717BA6D3A17190000000000000000FFFFDF005532
+        17FF93633EFFB07C55FFC18D64FFC8966EFFCB9972FFC7926DFFC38D68FFBB85
+        5FFFB07A54FFA26E49FF8F5E3AFF79431FEA80441C4D00000000000000005730
+        14FF9C7151FFB18563FFBF926FFFC69875FFC89A77FFC79975FFC39470FFBD8C
+        68FFB1805CFFA06F4CFF8A5835FF7D4C2BFF7D441FFE934F218F000000005C31
+        14FFAD8C6EFFB89474FFC29D7CFFC8A280FFCBA583FFCBA583FFC9A281FFC49E
+        7DFFBE9877FFB69171FFAD896BFF9A7457FF8B4F27FE9D54238F000000006132
+        13FFBEA48AFFC1A487FFC7A88AFFCAAA8BFFCBAB8BFFCCAA8AFFCAA989FFC7A6
+        86FFC2A282FFBC9C7DFFB48F6EFFA66538EBA358254E00000000000000008E68
+        4EF06E3916FF6B3815FF592E12FF48260FFF3D200DFFD0B496FFCFB293FFCDB0
+        91FFCAAE90FFB88A65FFA55C2BBDA558251A000000000000000000000000FFFF
+        FF0000000000000000000000000000000000542D12FFDAC4A6FFD7BFA0FFD1B5
+        97FFB0764BFAA4582578A75A2602000000000000000000000000000000000000
+        0000000000000000000000000000000000006F3B18FFE7D5B9FFC8A787FF9E5D
+        31DCA55925360000000000000000000000000000000000000000000000000000
+        00000000000000000000000000000000000092552CFFA56B43FF995223A4A257
+        250E000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000FFFFFF03E4CFC1AAA75C2958000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000
+      }
+      OnClick = GoAction1Click
+    end
+    object GoAction2: TSpeedButton
+      Left = 464
+      Height = 22
+      Top = 48
+      Width = 23
+      OnClick = GoAction2Click
+    end
+    object GoAction3: TSpeedButton
+      Left = 464
+      Height = 22
+      Top = 84
+      Width = 23
+      OnClick = GoAction3Click
+    end
+  end
+  object LocNumber: TLabel
+    Left = 470
+    Height = 18
+    Top = 8
+    Width = 71
+    Caption = 'LocNumber'
+    ParentColor = False
+  end
+  object NorthDir: TEdit
+    Left = 246
+    Height = 24
+    Top = 286
+    Width = 34
+    NumbersOnly = True
+    OnDblClick = NorthDirDblClick
+    TabOrder = 4
+  end
+  object SouthDir: TEdit
+    Left = 246
+    Height = 24
+    Top = 328
+    Width = 34
+    NumbersOnly = True
+    OnDblClick = SouthDirDblClick
+    TabOrder = 5
+  end
+  object WestDir: TEdit
+    Left = 208
+    Height = 24
+    Top = 312
+    Width = 34
+    NumbersOnly = True
+    OnDblClick = WestDirDblClick
+    TabOrder = 6
+  end
+  object EastDir: TEdit
+    Left = 288
+    Height = 24
+    Top = 312
+    Width = 34
+    NumbersOnly = True
+    OnDblClick = EastDirDblClick
+    TabOrder = 7
+  end
+  object Label3: TLabel
+    Left = 352
+    Height = 18
+    Top = 280
+    Width = 86
+    Caption = 'Item to take:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object ItemGet: TEdit
+    Left = 448
+    Height = 24
+    Top = 280
+    Width = 200
+    MaxLength = 20
+    TabOrder = 8
+  end
+  object Label4: TLabel
+    Left = 352
+    Height = 18
+    Top = 318
+    Width = 79
+    Caption = 'Item to use:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object ItemUse: TEdit
+    Left = 448
+    Height = 24
+    Top = 312
+    Width = 198
+    MaxLength = 20
+    TabOrder = 9
+  end
+  object Label5: TLabel
+    Left = 352
+    Height = 18
+    Top = 352
+    Width = 102
+    Caption = 'If Used go here:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object UseLoc: TEdit
+    Left = 463
+    Height = 24
+    Top = 352
+    Width = 33
+    NumbersOnly = True
+    OnDblClick = UseLocDblClick
+    TabOrder = 10
+  end
+  object UseDrop: TCheckBox
+    Left = 504
+    Height = 21
+    Top = 352
+    Width = 119
+    Caption = 'Drop After Use?'
+    TabOrder = 11
+  end
+  object Label6: TLabel
+    Left = 352
+    Height = 18
+    Top = 384
+    Width = 184
+    Caption = 'Have Item? Go here instead:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object UseMove: TEdit
+    Left = 545
+    Height = 24
+    Top = 378
+    Width = 31
+    NumbersOnly = True
+    OnDblClick = UseMoveDblClick
+    TabOrder = 12
+  end
+  object SaveBtn: TButton
+    Left = 656
+    Height = 24
+    Top = 384
+    Width = 73
+    Caption = 'Save'
+    OnClick = SaveBtnClick
+    TabOrder = 13
+  end
+end

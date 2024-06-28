@@ -1,0 +1,11 @@
+Wednesday November 15, 2023 at 09:50
+
+Decided to take another look at this project as I was debating on creating a shared unit with various VM types I have built in the past and make them available for easy use in any project.
+
+I didn't realize just how far along this class was, and how well it works.  So, I am thinking I am going to take the class here and implement a proper unit file within klib so that I can play around with EXC files in other programs, namely with KevFiles as a new executable format for it to use.
+
+Sunday December 31, 2023 at 03:14
+
+Took another look at this program today after thinking of perhaps implementing support for it in the VFS, that was until I remembered that each segment is only 64 bytes long, and it wasn't meant for such a purpose.  So, either I'd need to invent another format that is better suited for the web and other tasks, or use an op-code to load in external resource strings to use.  Which may work actually...
+
+I was also thinking of perhaps adding thread support into the VFS, but not for request handling, but to perform other tasks, like scheduling tasks internally and such.  Since running 6502 programs from this thread will only cause problems, as the 6502 virtual machine isn't thread-safe, I was thinking of perhaps using the EXC format as a way to run these tasks in this thread system.  It could really expand what the VFS can do, and make it really programmable.  It'd also be really cool to say have a 6502 syscall which can say execute an EXC file in a background task.  Now, do I want to have multiple threads for each EXC, or just have a single thread which the main thread queues in requests to.  The main thread can also spawn the other threads, as a "thread master" of sorts.  I'll need to take a look on how I plan on running EXCs to determine the best method to use threads.

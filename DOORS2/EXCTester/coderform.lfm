@@ -1,0 +1,83 @@
+object CoderWin: TCoderWin
+  Left = 312
+  Height = 356
+  Top = 175
+  Width = 659
+  Caption = 'CoderWin'
+  ClientHeight = 356
+  ClientWidth = 659
+  DesignTimePPI = 94
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '2.0.12.0'
+  object CodeEditor: TMemo
+    Left = 0
+    Height = 320
+    Top = 0
+    Width = 480
+    Lines.Strings = (
+      '.DSEG 2'
+      '.REG 5 65'
+      '.STRING 3 "Hello World!"'
+      '.CSEG 1'
+    )
+    ScrollBars = ssAutoVertical
+    TabOrder = 0
+  end
+  object RunBtn: TButton
+    Left = 88
+    Height = 24
+    Top = 328
+    Width = 73
+    Caption = 'Run'
+    OnClick = RunBtnClick
+    TabOrder = 1
+  end
+  object SegList: TListBox
+    Left = 488
+    Height = 318
+    Top = 0
+    Width = 170
+    ItemHeight = 0
+    OnDblClick = SegListDblClick
+    ScrollWidth = 168
+    TabOrder = 2
+    TopIndex = -1
+  end
+  object CompileBtn: TButton
+    Left = 8
+    Height = 24
+    Top = 328
+    Width = 73
+    Caption = 'Compile'
+    OnClick = CompileBtnClick
+    TabOrder = 3
+  end
+  object StepBtn: TButton
+    Left = 168
+    Height = 24
+    Top = 328
+    Width = 73
+    Caption = 'Step'
+    OnClick = StepBtnClick
+    TabOrder = 4
+  end
+  object Label1: TLabel
+    Left = 256
+    Height = 18
+    Top = 328
+    Width = 20
+    Caption = 'CP:'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblCP: TLabel
+    Left = 280
+    Height = 18
+    Top = 329
+    Width = 34
+    Caption = 'LblCP'
+    ParentColor = False
+  end
+end

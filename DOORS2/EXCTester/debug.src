@@ -1,0 +1,19 @@
+.DSEG 2
+.REG 5 64
+.STRING 3 "Hello World!"
+.CSEG 4
+write "In segment 4!"
+chkdev 8
+isreg 0 255 devok
+write "Uh oh"
+end
+:devok
+write "OK"
+syscall $30
+end
+.CSEG 7
+isreg 5 65 end
+write 3
+segjmp 4
+:end
+end
